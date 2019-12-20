@@ -1,7 +1,7 @@
 # AutoAdvancedZoneLocator
 This automatically configures zones and OCR profiles in an Advanced Zone Locator  
-It can be used to convert Kofax Capture projcets automatically to Kofax Transformation projects  
-It can be used to convert a PDF forms document to a Kofax Transformation Project
+It can be used to convert *Kofax Capture* projects automatically to Kofax Transformation projects  
+It can be used to convert a *PDF form* to a Kofax Transformation Project
 
 # Kofax Capture to Kofax Transformation
 -	Export your KC project from Kofax Capture as a cab file
@@ -37,6 +37,7 @@ c:\Program Files\nodejs\node.exe pdf2json.js -f "PDFFilename.pdf" -o "."
 ```
 - you now have a JSON rendition of the PDF document.
 - convert it to XML with https://www.freeformatter.com/json-to-xml-converter.html#ad-output
+- This XML document is not yet in a format ready for the project. you will need to adjust the xpath expressions in the KT project.
 - The Advanced Zone Locator works in millimeters. See https://stackoverflow.com/questions/42494394/pdf2json-page-unit-what-is-it for units conversion.
 - See https://github.com/modesty/pdf2json for description of the elements
 ## Implemented Features
