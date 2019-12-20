@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FieldChooser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FieldRenderers>
+    <FieldRenderer Name="@Filename" Lock="true" Show="true" Width="181" Type="Default" />
+    <FieldRenderer Name="@Classname" Lock="true" Show="true" Width="100" Type="Default" />
+    <FieldRenderer Name="@Confidence" Lock="true" Show="true" Width="100" Type="Percent" />
+  </FieldRenderers>
+</FieldChooser>
