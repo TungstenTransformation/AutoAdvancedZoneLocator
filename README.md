@@ -20,7 +20,7 @@ It can be used to convert a *PDF form* to a Kofax Transformation Project
 
 # PDF Form to Kofax Transformation
 This converts a PDF document to an XML file that you can use inside
-- download and install git. (https://git-scm.com/downloads)
+- download and install git (https://git-scm.com/downloads)
 - download and install node.js (https://nodejs.org/en/)
 - download and install pdf2json (https://github.com/modesty/pdf2json)
 - at the commandline type the following
@@ -33,7 +33,7 @@ npm install asynch
 npm install xmldom  
 npm install optimist  
 npm install  
-c:\Program Files\nodejs\node.exe pdf2json.js -f "PDFFilename.pdf" -o "."
+"c:\Program Files\nodejs\node.exe" pdf2json.js -f "PDFFilename.pdf" -o "."
 ```
 - you now have a JSON rendition of the PDF document.
 - convert it to XML with https://www.freeformatter.com/json-to-xml-converter.html#ad-output
