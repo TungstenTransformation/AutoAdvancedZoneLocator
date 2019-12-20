@@ -19,8 +19,26 @@ It can be used to convert a PDF forms document to a Kofax Transformation Project
 - Your project will be created and launched in a new Project Builder.
 
 # PDF Form to Kofax Transformation
-
-
+This converts a PDF document to an XML file that you can use inside
+- download and install git. (https://git-scm.com/downloads)
+- download and install node.js (https://nodejs.org/en/)
+- download and install pdf2json (https://github.com/modesty/pdf2json)
+- at the commandline type the following
+```
+mkdir pdf2json  
+cd pdf2json  
+git clone git@github.com:modesty/pdf2json.git  
+npm install lodash  
+npm install asynch  
+npm install xmldom  
+npm install optimist  
+npm install  
+c:\Program Files\nodejs\node.exe pdf2json.js -f "PDFFilename.pdf" -o "."
+```
+- you now have a JSON rendition of the PDF document.
+- convert it to XML with https://www.freeformatter.com/json-to-xml-converter.html#ad-output
+- The Advanced Zone Locator works in millimeters. See https://stackoverflow.com/questions/42494394/pdf2json-page-unit-what-is-it for units conversion.
+- See https://github.com/modesty/pdf2json for description of the elements
 ## Implemented Features
 - Import document classes and form types
 - Create fields and mappings from locators
