@@ -1,9 +1,10 @@
 # AutoAdvancedZoneLocator
-This automatically configures zones and OCR profiles in an Advanced Zone Locator  
-It can be used to convert *Kofax Capture* projects automatically to Kofax Transformation projects  
-It can be used to convert a *PDF form* to a Kofax Transformation Project
+[Automatically Generated Classes and Zone Locators from external data](AutoZone.md)
 
 # Kofax Capture to Kofax Transformation
+**This automatically configures Kofax Capture zones and OCR profiles in an Advanced Zone Locator  
+It can be used to convert *Kofax Capture* projects automatically to Kofax Transformation projects  
+It can be used to convert a *PDF form* to a Kofax Transformation Project**
 -	Export your KC project from Kofax Capture as a cab file
 - Unzip the Cab File so that admin.xml and admin.dtd are available
 - Load „GenerateForms.fpr“ in Kofax Transformation Project Builder
