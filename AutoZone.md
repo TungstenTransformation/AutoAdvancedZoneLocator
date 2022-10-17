@@ -2,7 +2,7 @@
 This script will convert zone information into a Kofax Transformation project.
 The import data needs to by in a text file with this format. It contains class name, field name, zone coordinates, OCR profile name, optional Formatter name and the sample image required by the Advanced Zone locator.
 | ParentClass | Class | Field | Available | X(mm) | Y(mm) | W(mm) | H(mm) | Profile | Formatter | SampleFile  | 
-| ---  | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ---         | ---   | ---   | :-:       | --:   | --:   | --:   | --:   | ---     | ---       | ---         |
 | ApplicationForm | DOC-1000-01 | F01NAME | Yes | 54.3 |  63.6 |  81.4 | 9.4 | OP_MachineAlphanum |                 | tiffs\DOC-1000-01\02-1.xdc |
 | ApplicationForm | DOC-1000-01 | F02PLAN | Yes | 77.6 | 225.4 | 107.5 | 9.2 | OP_MachineAlphanum | AmountOneOfMany |                            |
 | ApplicationForm | DOC-2000-01 | F01NAME | Yes | 54.3 |  97.5 |  81.4 | 9.4 | OP_MachineAlphanum |                 | tiffs\DOC-2000-01\03-1.xdc |
