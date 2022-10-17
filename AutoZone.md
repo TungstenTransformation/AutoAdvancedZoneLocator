@@ -10,11 +10,27 @@ The import data needs to by in a text file with this format. It contains class n
 
 The script
 * Creates the Class under the Parent Class (which must already exist in the project)
-* Creates an Advanced Zone Locator. Creates the Zone and Subfield with the same name and attaches an OCR profile.
+* Creates an Advanced Zone Locator. Creates the Zone and Subfield with the same name and attaches an OCR profile. You must give a sample document per class.
 * Creates the field, adds the optional field formatter and links the field to the AZL's subfield.
 
-## Steps
-* create the files 
+# Steps
+* create the file **zones.txt** and put it into the project folder.  
+![image](https://user-images.githubusercontent.com/47416964/196133571-be0569cc-0957-4f26-8491-6e582455b33b.png)
+* the coordinates need to be in millimeters.
+* the sample document path must be within the project folder.  
+![image](https://user-images.githubusercontent.com/47416964/196134238-5a3b9772-c8c0-43b3-9ddc-612712da8611.png)
+* Create a new project with a top-level class called **CreateClassesAndZones**. Deselect *Valid Classification Result* and *Available for Manual Classification*. We never want this class to be used at runtime. it is only to host our zone import script.  
+![image](https://user-images.githubusercontent.com/47416964/196134713-eac72311-b8bd-4b36-a0cd-5e2282d0d5ab.png)
+* Add a script locator called **SL_CreateZoneLocators**.
+* Add the Script down below to this class.
+* Open your sample documents in Project Builder so that the XDocs get created.
+* Select any document in the Documents window and Test the Script Locator.
+* You will see a pop-up warning you to close and re-open the project.  The script has added classes, locators and fields to your project, but Project Builder doesn't know they are there, so you need to close and re-open the project so that Project Builder is synzchronized to the new classes, fields and zone locators.
+![image](https://user-images.githubusercontent.com/47416964/196135359-5c924683-45a1-4c13-ae27-67389afa5fdd.png)
+* WARNING! There is still a bug in the script. You will see warnings when you reopen the project.  **DO NOT look at the fields in the classes**. Open the Zone Locator first, otherwise the fields will erase their locator linkings. After you have opened the Zone Locators, the fields will be happy. **hopefully I will find a solution to this, so that there are no warnings when re-opening the project**.
+
+
+# Script
 ```vb
 '#Language "WWB-COM"
 Option Explicit
