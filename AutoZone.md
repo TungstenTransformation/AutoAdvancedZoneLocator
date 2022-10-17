@@ -1,15 +1,39 @@
 # Create a KT Zone project from external zone data.
-This script will convert zone information into a Kofax Transformation project
-| DocumentType | DocumentID | Output Field | Available | X(mm) | Y(mm) | W(mm) | H(mm) | Profile | Formatter | SampleFile  | 
+This script will convert zone information into a Kofax Transformation project.
+The import data needs to by in a text file with this format. It contains class name, field name, zone coordinates, OCR profile name, optional Formatter name and the sample image required by the Advanced Zone locator.
+| ParentClass | Class | Field | Available | X(mm) | Y(mm) | W(mm) | H(mm) | Profile | Formatter | SampleFile  | 
 | ---  | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | ApplicationForm | DOC-1000-01 | F01NAME | Yes | 54.3 |  63.6 |  81.4 | 9.4 | OP_MachineAlphanum |                 | tiffs\DOC-1000-01\02-1.xdc |
 | ApplicationForm | DOC-1000-01 | F02PLAN | Yes | 77.6 | 225.4 | 107.5 | 9.2 | OP_MachineAlphanum | AmountOneOfMany |                            |
 | ApplicationForm | DOC-2000-01 | F01NAME | Yes | 54.3 |  97.5 |  81.4 | 9.4 | OP_MachineAlphanum |                 | tiffs\DOC-2000-01\03-1.xdc |
 | ApplicationForm | DOC-2000-01 | F02PLAN | Yes | 77.6 |  45.4 | 107.5 | 9.2 | OP_MachineAlphanum | AmountOneOfMany |                            |	
 
+The script
+* Creates the Class under the Parent Class (which must already exist in the project)
+* Creates an Advanced Zone Locator. Creates the Zone and Subfield with the same name and attaches an OCR profile.
+* Creates the field, adds the optional field formatter and links the field to the AZL's subfield.
 
+## Steps
+* create the files 
 ```vb
+'#Language "WWB-COM"
+Option Explicit
 
+' Class script: Document
+
+Private Sub SL_CreateZoneLocators_LocateAlternatives(ByVal pXDoc As CASCADELib.CscXDocument, ByVal pLocator As CASCADELib.CscXDocField)
+   Dim FileName As String, Row As String, Values() As String, ParentClassName As String, ClassName As String, FieldName As String
+   Dim ZoneLeft As Double, ZoneWidth As Double, ZoneTop As Double, ZoneHeight As Double, ZoneProfileName As String, ZonePage As Long
+   Dim Formatter As String, SampleFileName As String, LocatorName As String, SubFieldName As String
+   'WARNING!!! This script is dangerous - it makes changes to the project file. You could destory or corrupt your project. Make a backup before running!!
+   ' Read the file zones.txt in the project directory.
+   ' Create Classes, Fields, Zone Locators and Zones
+
+   FileName=Project_Path() & "zones.txt"
+   Open FileName For Input As #1
+   Line Input #1, Row 'ignore header
+   While Not EOF(1)
+      Line Input #1, Row
       Values=Split(Row & vbTab & vbTab & vbTab,vbTab)  ' We add a few extra vbtab to the end as "Line Input" trims trailing tabs.
       ParentClassName=Values(0)
       ClassName=Values(1)
